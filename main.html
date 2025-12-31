@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Report Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>EOD Report Generator</h2>
+
+      <label>Advocate Name</label>
+      <select id="name">
+        <option selected>Giselle Mingue Rios</option>
+        <option>Other</option>
+      </select>
+
+      <label>Accomplishments (Today's Wins)</label>
+      <textarea
+        id="wins"
+        placeholder="• Completed 3 intakes&#10;• Filed Smith documents"
+      ></textarea>
+
+      <label>Remaining Tasks (To-Do List)</label>
+      <textarea
+        id="todo"
+        placeholder="• Draft Jones statement&#10;• Follow up with coordinator"
+      ></textarea>
+
+      <label>Blockers/Notes</label>
+      <textarea
+        id="notes"
+        placeholder="e.g., Waiting on signature from HR"
+      ></textarea>
+
+      <label>Clients Attended</label>
+      <input type="number" id="clients-attended" min="0" placeholder="0" />
+
+      <label>Appointments Scheduled</label>
+      <input
+        type="number"
+        id="appointments-scheduled"
+        min="0"
+        placeholder="0"
+      />
+
+      <button onclick="generatePDF()">Download PDF</button>
+    </div>
+
+    <div id="pdf-content">
+      <div class="pdf-header">
+        <h1>End of Day Report</h1>
+        <p id="pdf-date"></p>
+      </div>
+      <div class="pdf-section">
+        <h3>Advocate Information</h3>
+        <p><span id="out-name"></span></p>
+      </div>
+      <div class="pdf-section">
+        <h3>Today's Accomplishments</h3>
+        <p id="out-wins" style="white-space: pre-line"></p>
+      </div>
+      <div class="pdf-section">
+        <h3>Remaining Work / Next Steps</h3>
+        <p id="out-todo" style="white-space: pre-line"></p>
+      </div>
+      <div class="pdf-section">
+        <h3>Notes & Blockers</h3>
+        <p id="out-notes" style="white-space: pre-line"></p>
+      </div>
+      <div class="pdf-section">
+        <h3>Appointments</h3>
+        <p>
+          <strong>Clients Attended:</strong>
+          <span id="out-clients-attended"></span>
+        </p>
+        <p>
+          <strong>Appointments Scheduled:</strong>
+          <span id="out-appointments-scheduled"></span>
+        </p>
+        <p id="out-appointments-details" style="white-space: pre-line"></p>
+      </div>
+      <div class="compliance-note" id="compliance-note"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
