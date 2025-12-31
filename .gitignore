@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Environment
+.env
+
+# Editor directories
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Generated PDFs and other large artifacts
+*.pdf
